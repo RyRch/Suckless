@@ -26,7 +26,7 @@ static Parameter defconfig[ParameterLast] = {
 	SETV(PreferredLanguages, ((char *[]){ NULL })),
 	SETB(RunInFullscreen,    0),
 	SETB(ScrollBars,         1),
-	SETB(ShowIndicators,     1),
+	SETB(ShowIndicators,     0),
 	SETB(SiteQuirks,         1),
 	SETB(SpellChecking,      0),
 	SETV(SpellLanguages,     ((char *[]){ "en_US", NULL })),
@@ -48,8 +48,8 @@ static WebKitFindOptions findopts = WEBKIT_FIND_OPTIONS_CASE_INSENSITIVE |
 #define SETPROP(p, q) { \
         .v = (const char *[]){ "/bin/sh", "-c", \
              "prop=\"`Surf " \
-             "| sed \"s/^$0(STRING) = \\(\\\\\"\\?\\)\\(.*\\)\\1$/\\2/\" " \
-             "| xargs -0 printf %b | dmenu -p \"Go :\" -nb \"#222222\" -sb \"#484e5f\"`\" &&" \
+             "| echo 'Surf' " \
+             "| xargs -0 printf %b | dmenu -p \"Run :\" -nb \"#282828\" -sb \"#a89984\"`\" &&" \
              "xprop -id $2 -f $1 8s -set $1 \"$prop\"", \
              p, q, winid, NULL \
         } \
