@@ -29,7 +29,7 @@
 #define TEXTW(X)              (drw_fontset_getwidth(drw, (X)) + lrpad)
 
 /* enums */
-enum { SchemeNorm, SchemeSel, SchemeOut, SchemeLast }; /* color schemes */
+enum { SchemeNorm, SchemeSel, SchemeOut, SchemeIn, SchemeLast }; /* color schemes */
 
 struct item {
 	char *text;
@@ -49,6 +49,7 @@ static struct item *itemstail= NULL;
 static struct item *matches, *matchend;
 static struct item *prev, *curr, *next, *sel;
 static int mon = -1, screen;
+static int blw, plw= 0;
 
 static Atom clip, utf8;
 static Display *dpy;
@@ -138,6 +139,7 @@ drawmenu(void)
 	unsigned int curpos;
 	struct item *item;
 	int x = 0, y = 0, w;
+    plw = drw->fonts->h / 2 + 1;
 
 	drw_setscheme(drw, scheme[SchemeNorm]);
 	drw_rect(drw, 0, 0, mw, mh, 1, 1);
@@ -145,6 +147,9 @@ drawmenu(void)
 	if (prompt && *prompt) {
 		drw_setscheme(drw, scheme[SchemeOut]);
 		x = drw_text(drw, x, 0, promptw, bh, lrpad / 2, prompt, 0);
+        drw_setscheme(drw, scheme[SchemeIn]);
+        drw_arrow(drw, x, 0, plw, bh, 1, 0);
+        x += plw;
 	}
 	/* draw input field */
 	w = (lines > 0 || !matches) ? mw - x : inputw;
