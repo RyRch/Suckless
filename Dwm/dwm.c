@@ -65,9 +65,6 @@ enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
 enum { 
     SchemeNorm, 
     SchemeSel, 
-    SchemeNorm2, 
-    SchemeNorm3, 
-    SchemeNorm4, 
     SchemeTag, 
     SchemeSelT,
     SchemeMode,
@@ -917,7 +914,7 @@ drawbar(Monitor *m)
 			if (m->sel->isfloating)
 				drw_rect(drw, x + boxs, boxs, boxw, boxw, m->sel->isfixed, 0);
 		} else {
-			drw_setscheme(drw, scheme[SchemeNorm2]);
+			drw_setscheme(drw, scheme[SchemeStatus]);
 			drw_rect(drw, x, 0, w, bh, 1, 1);
 		}
 	}

@@ -4,7 +4,7 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 0;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const Gap default_gap        = {.isgap = 1, .realgap = 10, .gappx = 10};
 static const unsigned int snap      = 30;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -23,10 +23,7 @@ static const char col_gray5[]       = "#7c6f64";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray2, col_gray1, col_gray2 }, //gray2
-	[SchemeSel]  = { col_gray1, col_cyan,  col_orange },
-	[SchemeNorm2] = { col_cyan, col_gray1, col_gray2 },
-	[SchemeNorm3] = { col_gray1, col_cyan, col_gray2 },
-	[SchemeNorm4] = { col_gray2, col_cyan, col_gray2 },
+	[SchemeSel]  = { col_gray1, col_cyan,  col_gray4 },
     [SchemeTag]  = { col_gray2, col_gray4, col_gray2 },
     [SchemeSelT]  = { col_gray3, col_gray4, col_gray1 },
     [SchemeMode]  = { col_gray1, col_gray2, col_orange },
@@ -63,8 +60,6 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       1<<4,            0,           -1 },
-	{ "Spotify",  NULL,       NULL,       1<<3,            0,           -1 },
-	{ "discord",  NULL,       NULL,       1<<2,            0,           -1 },
 	{ "Chromium", NULL,       NULL,       1<<1,            0,           -1 },
 };
 
@@ -97,11 +92,10 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = {
 	"dmenu_run", "-m", dmenumon, NULL
 };
-static const char *termcmd[]  = { "st", NULL };
 static const char *tmic[] = { "amixer", "set", "Capture", "toggle", NULL };
 static const char *downbright[] = { "xbacklight", "-dec", "10", NULL };
 static const char *upbright[] = { "xbacklight", "-inc", "10", NULL };
-static const char *tabbedcmd[] = { "tabbed", "-r 2", "st", "-w", "''", NULL };
+static const char *termcmd[] = { "tabbed", "-r 2", "st", "-w", "''", NULL };
 static const char *quitcmd[] = { "powerChoice", NULL };
 static const char *reccmd[] = { "recChoice", NULL };
 static const char *dmenubcmd[] = { "dmenuB", NULL };
@@ -110,7 +104,6 @@ static const char *webctoggle[] = { "webctoggle", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_t,      spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = tabbedcmd } },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
     { MODKEY,                       XK_d,      spawn,          {.v = dmenubcmd } },
     { MODKEY,                       XK_b,      togglebar,      {0} },
