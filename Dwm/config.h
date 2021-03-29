@@ -5,7 +5,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const Gap default_gap        = {.isgap = 1, .realgap = 10, .gappx = 10};
+static const Gap default_gap        = {.isgap = 1, .realgap = 10, .gappx = 25};
 static const unsigned int snap      = 30;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
@@ -107,26 +107,26 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
     { MODKEY,                       XK_d,      spawn,          {.v = dmenubcmd } },
     { MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_j,      incnmaster,     {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_k,      incnmaster,     {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY|ShiftMask,             XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY,                       XK_k,      focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_j,      focusstack,     {.i = -1 } },
+	//{ MODKEY|ShiftMask,             XK_k,      incnmaster,     {.i = +1 } },
+	//{ MODKEY|ShiftMask,             XK_j,      incnmaster,     {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_j,      setmfact,       {.f = -0.05} },
+	{ MODKEY|ShiftMask,             XK_k,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_f,      fullscreen,     {0} },
-	{ MODKEY,                       XK_s,       togglesticky,   {0} },
-	{ MODKEY,                       XK_z,       zoom,           {0} },
-	{ MODKEY,                       XK_l,       shiftview,      {.i = +1} },
-	{ MODKEY|ShiftMask,             XK_r,       spawn,          {.v = reccmd} },
-	{ MODKEY,                       XK_h,      shiftview,      {.i = -1} },
+	{ MODKEY,                       XK_s,      togglesticky,   {0} },
+	{ MODKEY,                       XK_z,      zoom,           {0} },
+	{ MODKEY,                       XK_n,      shiftview,      {.i = +1} },
+	{ MODKEY,                       XK_p,      shiftview,      {.i = -1} },
+	{ MODKEY|ShiftMask,             XK_r,      spawn,          {.v = reccmd} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY|ShiftMask,             XK_q,      spawn,          {.v = quitcmd } },
 	{ MODKEY,                       XK_space,  togglefloating, {0} },
-	{ MODKEY, 			XK_m,      cyclelayout,      {.i = -1} },
-	{ MODKEY|ShiftMask,             XK_m,      cyclelayout,      {.i = +1} },
-    { MODKEY,                       XK_parenright,  setgaps,        {.i = -5 } },
-    { MODKEY,                       XK_equal,  setgaps,        {.i = +5 } },
-    { MODKEY|ShiftMask,             XK_parenright,  setgaps,        {.i = GAP_RESET } },
+	{ MODKEY, 		            	XK_l,      cyclelayout,    {.i = -1} },
+	{ MODKEY|ShiftMask,             XK_l,      cyclelayout,    {.i = +1} },
+    { MODKEY,                       XK_parenright,  setgaps,   {.i = -5 } },
+    { MODKEY,                       XK_equal,       setgaps,   {.i = +5 } },
+    { MODKEY|ShiftMask,             XK_parenright,  setgaps,   {.i = GAP_RESET } },
     { MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = GAP_TOGGLE} },
 	{ 0,                            XF86XK_AudioLowerVolume,   spawn,
 		{.v = downvol } },
@@ -134,13 +134,13 @@ static Key keys[] = {
 		{.v = mutevol } },
 	{ 0,                            XF86XK_AudioRaiseVolume,   spawn,
 		{.v = upvol   } },
-	{ 0, 				XF86XK_MonBrightnessUp,    spawn,
+	{ 0, 			            	XF86XK_MonBrightnessUp,    spawn,
 		{.v = upbright } },
 	{ 0,                            XF86XK_MonBrightnessDown,  spawn,
 		{.v = downbright } },
-	{ 0,				XF86XK_AudioMicMute,       spawn,
+	{ 0,				            XF86XK_AudioMicMute,       spawn,
 		{.v = tmic } },
-    { 0,                XF86XK_WebCam,                spawn,
+    { 0,                             XF86XK_WebCam,            spawn,
         {.v = webctoggle } },
 	TAGKEYS(                        XK_ampersand,              0)
 	TAGKEYS(                        XK_eacute,                 1)
