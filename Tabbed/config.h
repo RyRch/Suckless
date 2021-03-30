@@ -4,8 +4,8 @@
 static const char font[]        = "FantasqueSansMonoNerdFont:pixelsize=18";
 static const char* normbgcolor  = "#282828";
 static const char* normfgcolor  = "#a89984";
-static const char* selbgcolor   = "#504945";
-static const char* selfgcolor   = "#ebdbb2";
+static const char* selfgcolor   = "#282828";
+static const char* selbgcolor   = "#a89984";
 static const char* urgbgcolor   = "#111111";
 static const char* urgfgcolor   = "#ffffff";
 static const char before[]      = "<";

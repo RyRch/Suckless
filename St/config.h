@@ -199,8 +199,6 @@ static MouseShortcut mshortcuts[] = {
 	//{ XK_ANY_MOD,             Button5, kscrolldown,    {.i = -1} },
 };
 
-
-#define MODKEY Mod1Mask
 /* mouse keys */
 MouseKey mkeys[] = {
 	/* button               mask            function        argument */
@@ -215,20 +213,21 @@ MouseKey mkeys[] = {
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
 	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
-	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
-	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
-	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
+//	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
+//	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
+//	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
 	{ TERMMOD,              XK_K,           zoom,           {.f = +1} },
 	{ TERMMOD,              XK_J,           zoom,           {.f = -1} },
-    { TERMMOD,              XK_Q,           zoom,           {.f =  0} },
-	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
+	{ TERMMOD,              XK_O,           zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
-	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
-	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ MODKEY,		        XK_u,   		kscrollup,	    {.i = -1} },
-	{ MODKEY,		        XK_d,	    	kscrolldown,	{.i = -1} },
+//	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
+//	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+	{ Mod1Mask,	            XK_u,   		kscrollup,	    {.i = -1} },
+	{ Mod1Mask,	            XK_d,   		kscrolldown,    {.i = -1} },
+	{ ControlMask,		    XK_j,	    	kscrolldown,	{.i =  1} },
+    { ControlMask,		    XK_k,	    	kscrollup,   	{.i =  1} },
 };
 
 /*
