@@ -50,7 +50,7 @@ static const char *mutevol[] = {
 
 /* tagging */
 static const char *tags[] = {
-	"csl", "www", "msg", "ply", "gui", "all"
+	"csl", "www", "msg", "all"
 };
 
 static const Rule rules[] = {
